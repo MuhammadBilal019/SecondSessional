@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
 class Simple extends StatefulWidget {
   @override
   _State createState() => _State();
@@ -15,10 +16,10 @@ class _State extends State<Simple> {
   Widget build(BuildContext context) {
     return  MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
           title: Text('Simple'),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.grey.shade900,
         ),
         body: Center(
           child: Column(
@@ -55,7 +56,7 @@ class _State extends State<Simple> {
                         }
                         countleft=0;
                         countright=0;
-                        
+
                       },
                       child: Text(
                         'Winer',
@@ -79,7 +80,7 @@ class _State extends State<Simple> {
                             RandNum();
                           });
                         },
-                        child: Image.asset('images/dice$LeftButton.png')
+                        child: Image.asset('Assets/dice$LeftButton.png')
                     ),
                   ),
                   Expanded(
@@ -90,7 +91,7 @@ class _State extends State<Simple> {
                             RandNum();
                           });
                         },
-                        child: Image.asset('images/dice$RightButton.png')
+                        child: Image.asset('Assets/dice$RightButton.png')
                     ),
                   ),
                 ],
