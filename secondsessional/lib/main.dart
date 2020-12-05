@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'Splash.dart';
+import 'Simple.dart';
+import 'Hard.dart';
 
 void main() {
   runApp(SplashScreen());
 }
+
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -29,66 +33,68 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
     Timer(
         Duration(seconds: 3),
-            () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => MyApp())));
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => SimpleHard())));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        color: Colors.black87,
-        child: Splash(),
+      color: Colors.black87,
+      child: Splash(),
     );
   }
 }
 //icon Changed
-class MyApp extends StatelessWidget {
+
+class SimpleHard extends StatefulWidget {
+  @override
+  _SimpleHardState createState() => _SimpleHardState();
+}
+
+class _SimpleHardState extends State<SimpleHard> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Home',
       home: Scaffold(
         backgroundColor: Colors.grey.shade900,
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0),
-          ),
-        ),
-      ),
-    );
-  }
-}
-class Splash extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              CircleAvatar(
-                backgroundColor: Colors.lightGreenAccent,
-                backgroundImage: AssetImage("Assets/profile.jpg"),
-              ),
-              Text(
-                'MUHAMMAD BILAL',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Simple()));
+                },
+                child: Text(
+                  'Simple',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-              Text(
-                'FA17-BSE-019',
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 10.0,
-                  letterSpacing: 9.5,
-                  fontWeight: FontWeight.bold,
+              SizedBox(
+                height: 40.0,
+                width: 400.0,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (context) => Hard()));
+                },
+                child: Text(
+                  'Hard',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-
-
             ],
           ),
         ),
